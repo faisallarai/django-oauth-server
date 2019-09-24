@@ -1,0 +1,1 @@
+web: gunicorn django-oauth-server.wsgi
