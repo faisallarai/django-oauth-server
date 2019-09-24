@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ application.name }}
+{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'oauth2_provider:list' %}">Applications</a></li>
+<li class="breadcrumb-item active" aria-current="page">{{application.name}}</li>
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" value="{{ application.name }}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="client_id">Client ID</label>
+        <input type="text" class="form-control" id="client_id" value="{{ application.client_id }}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="client_secret">Client Secret</label>
+        <input type="text" class="form-control" id="client_secret" value="{{ application.client_secret }}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="client_type">Client Type</label>
+        <input type="text" class="form-control" id="client_type" value="{{ application.client_type }}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="authorization_grant_type">Authorization Grant Type </label>
+        <input type="text" class="form-control" id="authorization_grant_type" value="{{ application.authorization_grant_type }}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="redirect_uris">Redirect Uris </label>
+        <input type="textarea" class="form-control" id="redirect_uris" value="{{ application.redirect_uris }}" readonly>
+    </div>
+
+    <a href="{% url 'oauth2_provider:list' %}" class="btn btn-outline-light">Applications</a>
+
+    <div class="form-group">
+        <a href="{% url 'oauth2_provider:update' application.pk %}" class="btn btn-primary btn-block btn-lg active">Edit</a>
+        <a href="{% url 'oauth2_provider:delete' application.pk %}" class="btn btn-danger btn-danger btn-block btn-lg">Delete</a>
+    </div>
+</div>
+
+{% endblock %}

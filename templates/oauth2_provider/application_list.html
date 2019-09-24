@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">Applications</li>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="mb-4">
+        <a href="{% url 'oauth2_provider:register' %}" class="btn btn-primary">New Application</a>
+    </div>
+    <table class="table">
+        <thead class="thread-inverse">
+            <th>Name</th>
+            <th>ClientID</th>
+            <th>Client Type</th>
+        </thead>
+        <tbody>
+            {% for application in applications.all %}
+            <tr>
+                <td>
+                    <a href="{% url 'oauth2_provider:detail' application.pk %}">{{ application.name }}</a> <br>
+                    <small class="text-muted d-block">{{ application.authorization_grant_type }}</small>
+                </td>
+                <td>{{ application.client_id }}</td>
+                <td>{{ application.client_type }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
