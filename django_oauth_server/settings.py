@@ -24,10 +24,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fygazyz)_9*z@=yrbowq(asu$^8-$8lymtxoxt)3vs#aog2g7$')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+ALLOWED_HOSTS = ['django-oauth-server.herokuapp.com', 'localhost']
+
 # DEBUG = True
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL_REDIRECT', '') != 'True'
+SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL_REDIRECT', 'False')
 
 
 ALLOWED_HOSTS = []
