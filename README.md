@@ -21,3 +21,11 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver localhost:8001
 ```
+
+
+# Heroku commands
+```
+heroku run python manage.py migrate -a django-oauth-server
+heroku run python manage.py createsuperuser -a django-oauth-server
+```
+
